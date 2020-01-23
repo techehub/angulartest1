@@ -1,0 +1,48 @@
+<h1 *ngIf="display">Home Page</h1>
+
+<button (click)="clearCourse()">Clear </button>
+<button (click)="getCourse()">get Course </button>
+
+<div *ngIf="courses ; then coursedetail; else nocourse">  </div>
+
+
+<ng-template #coursedetail >
+<table class="table table-hover" >
+  <thead>
+    <tr>
+      <th>#Id</th>
+      <th>Title</th>
+      <th>Hrs</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+
+      <tr *ngFor="let item of courses">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.duration}}</td>
+        <td>  
+            <div [ngSwitch]="item.type">
+            <div *ngSwitchCase="'O'"> <span [ngStyle]="onlineStyle"> Online</span> </div>
+            <div *ngSwitchCase="'R'"><span [ngStyle]="regularStyle"> Online</span></div>
+            <div *ngSwitchDefault><span [ngStyle]="{color: 'blue'}"> Online</span></div>
+        </div> 
+     </td>
+      </tr>
+
+
+  
+
+
+
+  </tbody>
+</table>
+
+</ng-template>
+
+<ng-template #nocourse >
+
+    No courses
+
+</ng-template>
