@@ -1,1 +1,17 @@
 <p>home-contact works!</p>
+
+<form #myForm="ngForm">
+
+Enter a name :: <input type="text" name= "address" [(ngModel)]="address1" #abc minlength="5"> 
+<button  [disabled]="myForm.invalid" (click)="addValues(abc.value)"> Add Names </button>
+</form>
+
+{{abc.className}}
+
+<div *ngIf="myNames">
+These Your Names ::
+
+<ul *ngFor="let name of myNames">
+    <li>{{name}}</li>
+</ul>
+</div>

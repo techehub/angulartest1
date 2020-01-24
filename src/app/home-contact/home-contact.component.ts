@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeContactComponent implements OnInit {
 
+  myNames : string  [];
+  address1: string = "My address" 
+  address2: string ;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  addValues (val){
+    if (this.myNames== undefined){
+      this.myNames=[]
+    }
+    
+    this.myNames.push(val)
+  }
+
 
 }
